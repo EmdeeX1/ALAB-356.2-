@@ -1,0 +1,19 @@
+def validate_age(age):
+ """Raises ValueError if age is not between 0 and 120 (inclusive)."""
+ if age < 0 or age > 120:
+  raise ValueError("Age must be between 0 and 120 (inclusive)")
+
+
+def main():
+    try:
+        user_input = int(input("Enter your age: "))
+        validate_age(user_input)
+        print("Success: Your age has been accepted!")
+    except ValueError as e:
+        print(f"Error: {e}")
+    #except ValueError: 
+       # This block catches the 'invalid literal' error shown in your image
+        print("Error: Invalid input. Please enter a whole number (integer).")
+
+if __name__ == "__main__":
+    main()
