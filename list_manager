@@ -1,0 +1,48 @@
+def main():
+    numbers = []
+
+    while True:
+        print("\n--- List manager ---")
+        print("a) Add a number")
+        print("b) Remove a number (by index)")
+        print("c) Display the list")
+        print("d) Quit")
+
+        choice = input("Choose an option: ").lower()
+
+        if choice == 'a':
+            try:
+                num = int(input("Enter an integer to add: "))
+                numbers.append(num)
+                print(f"Added {num} to the list.")
+            except ValueError:
+                print("Error: Please enter a valid integer.")
+
+        elif choice == 'b':
+            if not numbers:
+                print("The list is currently empty.")
+                continue
+            try:
+                index = int(input(f"Enter the index (0 to {len(numbers) - 1}) to remove: "))
+                if 0 <= index < len(numbers):
+                    removed = numbers.pop(index)
+                    print(f"Removed {removed} from index {index}.")
+                else:
+                    print("Error: Index out of range.")
+            except ValueError:
+                print("Error: Please enter a valid integer for the index.")
+            except IndexError:
+                print(f"Error: Invalid index. Please enter an index between 0 and {len(numbers) - 1}.")
+
+        elif choice == 'c':
+            print("Current list:", numbers)
+
+        elif choice == 'd':
+            print("Exiting List Manager. Goodbye!")
+            break
+
+        else:
+            print("Error: Invalid option. Please choose a, b, c, or d.")
+
+if __name__ == "__main__":
+      main()
